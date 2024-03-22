@@ -1,0 +1,11 @@
+.dopple-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.dopple-header-time-date {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+}
