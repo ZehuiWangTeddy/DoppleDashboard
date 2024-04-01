@@ -179,3 +179,29 @@
 #networkServices .networkFlow .warning {
     background: #ACA45E;
 }
+
+.camera-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    height: 90%;
+    width: 90%;
+    padding: 10px;
+  }
+
+.camera {
+    background-color: #333;
+    overflow: hidden;
+    position: relative;
+    padding-top: 56.25%;
+   
+  }
+  
+.camera > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
