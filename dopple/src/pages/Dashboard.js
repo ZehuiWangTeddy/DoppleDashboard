@@ -45,9 +45,19 @@ const Dashboard = () => {
         let topicParts = topic.split('/');
         let type = topicParts[1];
         var orderDatas = JSON.parse(message.toString());
+        const data = JSON.parse(message.toString());
 
         console.log(type, orderDatas);
-        if (type === 'ORDER-PORTAL') {
+        if (type === 'PRADA') {
+          const printerStatus = Object.keys(data.values)
+            .filter(key => key.startsWith('printer'))
+            .map(key => ({
+              id: key,
+              no: key.split('_')[1],
+              status: data.values[key]
+            }));
+          setPrinterData(printerStatus);
+        } else if (type === 'ORDER-PORTAL') {
           let companies = [];
           let cleanData = {};
           Object.keys(orderDatas.values).forEach((key) => {
@@ -143,16 +153,18 @@ const Dashboard = () => {
           <h3>3D Printer Status <img src={printersLogo} alt="Chip icon that represents the printers" /></h3>
           <table>
             <tr>
-              <th></th>
               <th>Printer No</th>
               <th className='columnPrinterStatus'>Status</th>
             </tr>
             {printerData.map((printer) => (
               <tr key={printer.id}>
-                <td>{printer.id}</td>
-                <td>{printer.no}</td>
-                <td className='columnPrinterStatus'>{printer.status}</td>
-              </tr>
+              <td>{printer.no}</td>
+              <td className='columnPrinterStatus'>
+                <span className="printer-status" style={{ backgroundColor: printer.status === 'FREE' ? '#3f2' : printer.status === 'PRINTING' ? '#ACA45E' : 'red'}}>
+                  {printer.status}
+                </span>
+              </td>
+            </tr>
             ))}
           </table>
         </div>

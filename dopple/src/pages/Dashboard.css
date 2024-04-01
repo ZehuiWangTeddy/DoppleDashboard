@@ -40,18 +40,36 @@
     justify-content: space-between;
 }
 
-#printers table tr{
+#printers table tr {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-around;
     padding: 10px;
 }
 
-#printers table tr td{
+#printers table tr:nth-child(odd) {
+    background: #5D6F80;
+    border: 1px solid #5D6F80;
+}
+
+#printers table tr td {
     font-weight: bold;
     color: white;
     -webkit-text-stroke: 0.5px black;
-    text-shadow: 2px 2px 2px rgb(71, 70, 70); 
+    text-shadow: 2px 2px 2px rgb(71, 70, 70);
+    flex: 1;
+    text-align: center;
+}
+
+
+#table tr:nth-child(odd) {
+    background: #5D6F80;
+    border: 1px solid #5D6F80;
+}
+
+.printer-status {
+    padding: 3px 8px;
 }
 
 #table tr:nth-child(odd) {
