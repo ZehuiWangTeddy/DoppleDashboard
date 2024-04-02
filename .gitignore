@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 dopple/*/node_modules/
+Backend/*/node_modules/
 /.pnp
 .pnp.js
 
@@ -18,6 +19,13 @@ dopple/*/node_modules/
 .env.development.local
 .env.test.local
 .env.production.local
+.env
+.ts
+.m3u8
+Backend/*/server/cams/cam1-videos/**/*.ts
+Backend/*/server/cams/cam2-videos/**/*.ts
+Backend/*/server/cams/cam3-videos/**/*.ts
+Backend/*/server/cams/cam4-videos/**/*.ts
 
 npm-debug.log*
 yarn-debug.log*

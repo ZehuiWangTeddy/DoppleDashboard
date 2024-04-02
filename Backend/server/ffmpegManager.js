@@ -1,13 +1,14 @@
+require('dotenv').config({ path: '../../credentials.env' });
 const { spawn } = require('child_process');
 
+//Add the reolink camera links
 const cameraStreams = [
-  { id: 'cam1', rtspUrl: 'rtsp://admin:Dopple700@192.168.1.22:554/h265Preview_01_main', outputPath: './cams/cam1-videos/index.m3u8' },
-  { id: 'cam2', rtspUrl: 'rtsp://admin:Dopple700@192.168.1.22:554/h265Preview_01_main', outputPath: './cams/cam2-videos/index.m3u8' },
-  { id: 'cam3', rtspUrl: 'rtsp://admin:Dopple700@192.168.1.22:554/h265Preview_01_main', outputPath: './cams/cam3-videos/index.m3u8' },
-  // Assuming cam4 should be unique, corrected the id and outputPath
-  { id: 'cam4', rtspUrl: 'rtsp://admin:Dopple700@192.168.1.22:554/h265Preview_01_main', outputPath: './cams/cam4-videos/index.m3u8' },
+  { id: 'cam1', rtspUrl: `rtsp://admin:${process.env.CAMERA_PASS}@192.168.1.22:554/h265Preview_01_main`, outputPath: './cams/cam1-videos/index.m3u8' },
+  //{ id: 'cam2', rtspUrl: `rtsp://admin:${process.env.CAMERA_PASS}@192.168.1.22:554/h265Preview_01_main`, outputPath: './cams/cam2-videos/index.m3u8' },
+  //{ id: 'cam3', rtspUrl: `rtsp://admin:${process.env.CAMERA_PASS}@192.168.1.22:554/h265Preview_01_main`, outputPath: './cams/cam3-videos/index.m3u8' },
+  //{ id: 'cam4', rtspUrl: `rtsp://admin:${process.env.CAMERA_PASS}@192.168.1.22:554/h265Preview_01_main`, outputPath: './cams/cam3-videos/index.m3u8' },
 ];
-
+//ffmpeg command to encode the stream to hls
 function startFFmpegProcess(rtspUrl, outputPath) {
   const ffmpegProcess = spawn('ffmpeg', [
     '-rtsp_transport', 'tcp',

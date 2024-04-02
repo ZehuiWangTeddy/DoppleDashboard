@@ -20,14 +20,12 @@ let looper_timeout = null;
  * Frequency at which dashboard updates should be published.
  * Unit is in seconds
  */
-// const DASHBOARD_FREQUENCY = 300;
-const DASHBOARD_FREQUENCY = 10;
+const DASHBOARD_FREQUENCY = 300;
 
 /**
  * Change this to connect to a different server
  */
-// const MQTT_URI = "mqtt://localhost:1883/mqtt"
-const MQTT_URI = "ws://localhost:8000/mqtt"
+const MQTT_URI = "mqtt://localhost:1883"
 
 /**
  * List of services that this application emulates
@@ -202,13 +200,15 @@ client.on('disconnect', (conn_packet) => {
  * Setup the Windows support for using CTRL+C as a way to safely exit the program
  */
 if (process.platform === "win32") {
-    var rl = require("readline").createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
+    import("readline").then(readline => {
+        const rl = readline.createInterface({
+            input: process.stdin,
+            output: process.stdout
+        });
 
-    rl.on("SIGINT", function () {
-        process.emit("SIGINT");
+        rl.on("SIGINT", function () {
+            process.emit("SIGINT");
+        });
     });
 }
 
