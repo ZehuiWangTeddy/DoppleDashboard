@@ -171,7 +171,7 @@ const Dashboard = () => {
         <div id="orderStatus">
           <table>
             <tr>
-              <th>#</th>
+              {/* <th>#</th> */}
               {companyData.map((company) => (
                 <th key={company}>{company}</th>
               ))}
@@ -179,7 +179,7 @@ const Dashboard = () => {
             </tr>
             {statusData.map((key, index) => (
               <tr key={index} className='statusLast'>
-                <td>{index+1}</td>
+                {/* <td>{index+1}</td> */}
                 {companyData.map((company) => (
                   <td className='numberfield' key={company}>{orderData[company][key] || 0}</td>
                 ))}
