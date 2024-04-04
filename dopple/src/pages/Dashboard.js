@@ -28,6 +28,7 @@ const Dashboard = () => {
   ];
 
   useEffect(() => {
+    // please update your MQTT sever address at here
     const MQTT_URI = "ws://localhost:8000/mqtt";
     try {
       var client = mqtt.connect(MQTT_URI, {
