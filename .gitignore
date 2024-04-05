@@ -20,6 +20,7 @@ Backend/*/node_modules/
 .env.test.local
 .env.production.local
 .env
+credentials.env
 .ts
 .m3u8
 Backend/*/server/cams/cam1-videos/**/*.ts
