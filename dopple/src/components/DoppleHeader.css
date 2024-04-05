@@ -6,6 +6,9 @@
 
 .dopple-header-time-date {
     display: flex;
-    justify-content: space-between;
     font-size: 30px;
+}
+
+.dopple-header-date {
+    margin-left: 40px;
 }

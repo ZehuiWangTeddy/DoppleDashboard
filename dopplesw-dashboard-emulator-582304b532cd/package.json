@@ -1,0 +1,12 @@
+{
+  "name": "dashboard-emulator",
+  "version": "0.1.0",
+  "main": "dashboard.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --es-module-specifier-resolution=node --no-warnings ."
+  },
+  "dependencies": {
+    "mqtt": "^5.3.6"
+  }
+}
